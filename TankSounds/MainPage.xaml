@@ -62,28 +62,28 @@
                     x:Name="StartButton"
                     Grid.Row="0"
                     BackgroundColor="#708238"
-                    Clicked="OnStartClicked"
+                    Clicked="OnStartUpClicked"
                     CornerRadius="12"
                     FontAttributes="Bold"
                     FontSize="18"
                     HeightRequest="68"
                     IsEnabled="False"
                     SemanticProperties.Hint="Starts the tank and enables the sound controls"
-                    Text="START"
+                    Text="Start Engine"
                     TextColor="White" />
                 <Button
                     x:Name="StopButton"
                     Grid.Row="0"
                     Grid.Column="1"
                     BackgroundColor="#963F32"
-                    Clicked="OnStopClicked"
+                    Clicked="OnShutDownClicked"
                     CornerRadius="12"
                     FontAttributes="Bold"
                     FontSize="18"
                     HeightRequest="68"
                     IsEnabled="False"
                     SemanticProperties.Hint="Shuts down the tank and disables the sound controls"
-                    Text="SHUT DOWN"
+                    Text="Shut Down Engine"
                     TextColor="White" />
 
                 <Button
@@ -97,7 +97,7 @@
                     HeightRequest="68"
                     IsEnabled="False"
                     SemanticProperties.Hint="Plays the sound of a moving tank until Stop is pressed"
-                    Text="MOVE"
+                    Text="Drive Tank"
                     TextColor="White" />
                 <Button
                     x:Name="StopMoveButton"
@@ -111,7 +111,7 @@
                     HeightRequest="68"
                     IsEnabled="False"
                     SemanticProperties.Hint="Stops the tank moving sound"
-                    Text="STOP"
+                    Text="Stop Tank"
                     TextColor="White" />
 
                 <Button
@@ -126,7 +126,7 @@
                     Pressed="OnMachineGunPressed"
                     Released="OnMachineGunReleased"
                     SemanticProperties.Hint="Hold to fire the machine gun"
-                    Text="MACHINE GUN&#10;HOLD TO FIRE"
+                    Text="Machine Gun&#10;Hold To Fire"
                     TextColor="White" />
                 <Button
                     x:Name="MainGunButton"
@@ -140,7 +140,7 @@
                     HeightRequest="84"
                     IsEnabled="False"
                     SemanticProperties.Hint="Fires the main cannon once"
-                    Text="MAIN GUN&#10;FIRE ONCE"
+                    Text="Fire Main Gun&#10;Fire Once"
                     TextColor="White" />
             </Grid>
 

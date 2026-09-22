@@ -82,7 +82,7 @@ public partial class MainPage : ContentPage
 		_players.Add(fileName, _audioManager.CreatePlayer(stream));
 	}
 
-	private void OnStartClicked(object sender, EventArgs e)
+	private void OnStartUpClicked(object sender, EventArgs e)
 	{
 		StopAllPlayers();
 		_tankStarted = true;
@@ -92,7 +92,7 @@ public partial class MainPage : ContentPage
 		SemanticScreenReader.Announce("Tank started. Sound controls enabled.");
 	}
 
-	private void OnStopClicked(object sender, EventArgs e)
+	private void OnShutDownClicked(object sender, EventArgs e)
 	{
 		StopAllPlayers();
 		_tankStarted = false;
