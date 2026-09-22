@@ -5,8 +5,9 @@ A .NET MAUI mobile application that plays original, packaged tank sound effects.
 ## Controls
 
 - **Start** starts the tank and unlocks the other controls.
-- **Stop** plays the shutdown sound, stops active sounds, and locks the controls.
-- **Move** plays the sound of a moving tank.
+- **Shut Down** plays the shutdown sound, stops active sounds, and locks the controls.
+- **Move** plays the sound of a moving tank on a continuous loop.
+- **Stop** stops the tank moving sound.
 - **Machine Gun** fires continuously while the button is held.
 - **Main Gun** fires the main cannon once per press.
 

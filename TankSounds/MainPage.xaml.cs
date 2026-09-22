@@ -53,6 +53,7 @@ public partial class MainPage : ContentPage
 			await AddPlayerAsync(MachineGunSound);
 			await AddPlayerAsync(MainGunSound);
 
+			_players[MoveSound].Loop = true;
 			_players[MachineGunSound].Loop = true;
 			_soundsLoaded = true;
 			StatusLabel.Text = "Ready to start";
@@ -106,6 +107,14 @@ public partial class MainPage : ContentPage
 		if (_tankStarted)
 		{
 			PlayFromBeginning(MoveSound);
+		}
+	}
+
+	private void OnStopMoveClicked(object sender, EventArgs e)
+	{
+		if (_tankStarted)
+		{
+			StopPlayer(MoveSound);
 		}
 	}
 
@@ -164,6 +173,7 @@ public partial class MainPage : ContentPage
 		StartButton.IsEnabled = _soundsLoaded;
 		StopButton.IsEnabled = _soundsLoaded && _tankStarted;
 		MoveButton.IsEnabled = _soundsLoaded && _tankStarted;
+		StopMoveButton.IsEnabled = _soundsLoaded && _tankStarted;
 		MachineGunButton.IsEnabled = _soundsLoaded && _tankStarted;
 		MainGunButton.IsEnabled = _soundsLoaded && _tankStarted;
 		StatusLight.BackgroundColor = _tankStarted ? Color.FromArgb("#8CAA45") : Color.FromArgb("#8B3A2E");
