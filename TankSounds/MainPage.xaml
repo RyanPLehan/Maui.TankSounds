@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TankSounds.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#12180F"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,40,24,32" Spacing="22">
+            <VerticalStackLayout Spacing="4">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="36"
+                    HorizontalTextAlignment="Center"
+                    SemanticProperties.HeadingLevel="Level1"
+                    Text="TANK SOUNDS"
+                    TextColor="#F1E6C8" />
+                <Label
+                    FontSize="14"
+                    HorizontalTextAlignment="Center"
+                    Text="ARMORED AUDIO CONTROL"
+                    TextColor="#AEB99C" />
+            </VerticalStackLayout>
+
+            <Border
+                BackgroundColor="#20291B"
+                Stroke="#65734E"
+                StrokeShape="RoundRectangle 14"
+                StrokeThickness="1">
+                <Grid Padding="18,14" ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                    <Border
+                        x:Name="StatusLight"
+                        BackgroundColor="#8B3A2E"
+                        HeightRequest="14"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 7"
+                        VerticalOptions="Center"
+                        WidthRequest="14" />
+                    <VerticalStackLayout Grid.Column="1" Spacing="1">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="SYSTEM STATUS"
+                            TextColor="#AEB99C" />
+                        <Label
+                            x:Name="StatusLabel"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="Loading sounds..."
+                            TextColor="#F1E6C8" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <Grid
+                ColumnDefinitions="*,*"
+                ColumnSpacing="12"
+                RowDefinitions="Auto,Auto,Auto"
+                RowSpacing="12">
+                <Button
+                    x:Name="StartButton"
+                    Grid.Row="0"
+                    BackgroundColor="#708238"
+                    Clicked="OnStartClicked"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="68"
+                    IsEnabled="False"
+                    SemanticProperties.Hint="Starts the tank and enables the sound controls"
+                    Text="START"
+                    TextColor="White" />
+                <Button
+                    x:Name="StopButton"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="#963F32"
+                    Clicked="OnStopClicked"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="68"
+                    IsEnabled="False"
+                    SemanticProperties.Hint="Shuts down the tank and disables the sound controls"
+                    Text="STOP"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="MoveButton"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#455437"
+                    Clicked="OnMoveClicked"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HeightRequest="68"
+                    IsEnabled="False"
+                    SemanticProperties.Hint="Plays the sound of a moving tank"
+                    Text="MOVE"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="MachineGunButton"
+                    Grid.Row="2"
+                    BackgroundColor="#554F3B"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    HeightRequest="84"
+                    IsEnabled="False"
+                    Pressed="OnMachineGunPressed"
+                    Released="OnMachineGunReleased"
+                    SemanticProperties.Hint="Hold to fire the machine gun"
+                    Text="MACHINE GUN&#10;HOLD TO FIRE"
+                    TextColor="White" />
+                <Button
+                    x:Name="MainGunButton"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="#695A36"
+                    Clicked="OnMainGunClicked"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    HeightRequest="84"
+                    IsEnabled="False"
+                    SemanticProperties.Hint="Fires the main cannon once"
+                    Text="MAIN GUN&#10;FIRE ONCE"
+                    TextColor="White" />
+            </Grid>
+
+            <Label
+                FontSize="13"
+                HorizontalTextAlignment="Center"
+                Text="Start the engine to unlock weapons and movement."
+                TextColor="#89947C" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
