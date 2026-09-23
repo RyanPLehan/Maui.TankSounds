@@ -6,10 +6,10 @@ public partial class MainPage : ContentPage
 {
 	private const string StartupSound = "tank_start.wav";
 	private const string ShutdownSound = "tank_stop.wav";
-	private const string MoveSound = "tank_move.wav";
+	private const string MoveSound = "tank_move.mp3";
 	private const string MachineGunSound = "machine_gun.wav";
-	private const string MainGunSound = "main_gun.wav";
-
+	private const string MainGunSound = "main_gun.mp3";
+	private const string RotateTurretSound = "tank_turret_rotate.mp3";	
 	private readonly IAudioManager _audioManager;
 	private readonly Dictionary<string, IAudioPlayer> _players = [];
 	private readonly Dictionary<string, Stream> _soundStreams = [];
@@ -52,9 +52,11 @@ public partial class MainPage : ContentPage
 			await AddPlayerAsync(MoveSound);
 			await AddPlayerAsync(MachineGunSound);
 			await AddPlayerAsync(MainGunSound);
+			await AddPlayerAsync(RotateTurretSound);
 
 			_players[MoveSound].Loop = true;
 			_players[MachineGunSound].Loop = true;
+			_players[RotateTurretSound].Loop = true;
 			_soundsLoaded = true;
 			StatusLabel.Text = "Ready to start";
 		}
@@ -118,7 +120,26 @@ public partial class MainPage : ContentPage
 		}
 	}
 
-	private void OnMachineGunPressed(object sender, EventArgs e)
+    private void OnRotateTurretPressed(object sender, EventArgs e)
+    {
+        if (_tankStarted)
+        {
+            PlayFromBeginning(RotateTurretSound);
+            StatusLabel.Text = "Rotating turret";
+        }
+    }
+
+    private void OnRotateTurretReleased(object sender, EventArgs e)
+    {
+        StopPlayer(RotateTurretSound);
+
+        if (_tankStarted)
+        {
+            StatusLabel.Text = "Tank running";
+        }
+    }
+
+    private void OnMachineGunPressed(object sender, EventArgs e)
 	{
 		if (_tankStarted)
 		{
@@ -174,7 +195,8 @@ public partial class MainPage : ContentPage
 		StopButton.IsEnabled = _soundsLoaded && _tankStarted;
 		MoveButton.IsEnabled = _soundsLoaded && _tankStarted;
 		StopMoveButton.IsEnabled = _soundsLoaded && _tankStarted;
-		MachineGunButton.IsEnabled = _soundsLoaded && _tankStarted;
+		RotateTurretButton.IsEnabled = _soundsLoaded && _tankStarted;
+        MachineGunButton.IsEnabled = _soundsLoaded && _tankStarted;
 		MainGunButton.IsEnabled = _soundsLoaded && _tankStarted;
 		StatusLight.BackgroundColor = _tankStarted ? Color.FromArgb("#8CAA45") : Color.FromArgb("#8B3A2E");
 	}

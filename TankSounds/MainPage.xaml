@@ -14,7 +14,7 @@
                     FontSize="36"
                     HorizontalTextAlignment="Center"
                     SemanticProperties.HeadingLevel="Level1"
-                    Text="TANK SOUNDS"
+                    Text="Grandpa Ryan's Famous&#10;Tank Sounds"
                     TextColor="#F1E6C8" />
                 <Label
                     FontSize="14"
@@ -41,7 +41,7 @@
                         <Label
                             FontAttributes="Bold"
                             FontSize="12"
-                            Text="SYSTEM STATUS"
+                            Text="Tank Status"
                             TextColor="#AEB99C" />
                         <Label
                             x:Name="StatusLabel"
@@ -56,7 +56,7 @@
             <Grid
                 ColumnDefinitions="*,*"
                 ColumnSpacing="12"
-                RowDefinitions="Auto,Auto,Auto"
+                RowDefinitions="Auto,Auto,Auto,Auto"
                 RowSpacing="12">
                 <Button
                     x:Name="StartButton"
@@ -115,8 +115,25 @@
                     TextColor="White" />
 
                 <Button
-                    x:Name="MachineGunButton"
+                    x:Name="RotateTurretButton"
                     Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#554F3B"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    HeightRequest="84"
+                    IsEnabled="False"
+                    Pressed="OnRotateTurretPressed"
+                    Released="OnRotateTurretReleased"
+                    SemanticProperties.Hint="Hold to rotate the turret"
+                    Text="Rotate Turret&#10;Hold To Rotate"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="MachineGunButton"
+                    Grid.Row="3"
                     BackgroundColor="#554F3B"
                     CornerRadius="12"
                     FontAttributes="Bold"
@@ -130,7 +147,7 @@
                     TextColor="White" />
                 <Button
                     x:Name="MainGunButton"
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="1"
                     BackgroundColor="#695A36"
                     Clicked="OnMainGunClicked"
